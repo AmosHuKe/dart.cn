@@ -163,6 +163,8 @@
       permalink: /tools/pub/workspaces
     - title: Hooks
       permalink: /tools/hooks
+    - title: 通过 package 使用 skills
+      permalink: /tools/pub/package-skills
     - title: Package 参考资料
       expanded: false
       children:
@@ -232,6 +234,8 @@
 - title: 与其他语言进行交互调用
   expanded: false
   children:
+  - title: 概览
+    permalink: /interop
   - title: 与 C 互调
     permalink: /interop/c-interop
   - title: 与 Objective-C 和 Swift 互调
@@ -318,6 +322,8 @@
       children:
         - title: build_runner 命令
           permalink: /tools/build_runner
+        - title: package:skills
+          permalink: /tools/package-skills
         - title: webdev 命令
           permalink: /tools/webdev
   - title: 静态分析
@@ -351,6 +357,10 @@
 - title: AI
   expanded: false
   children:
+    - title: 概览
+      permalink: /ai
+    - title: Package skills
+      permalink: /ai/package-skills
     - title: Dart 和 Flutter 的 MCP Server
       permalink: https://docs.flutter.cn/ai/mcp-server
     - title: Genkit (Dart)
