@@ -227,7 +227,12 @@ abstract class DashLayout extends PageLayoutBase {
 '''),
       // dart.cn
       const RawText('''
-<script async src="https://c.getopen.so/oa.js" data-key="oa_pk_e45k56jQ95AYE2AaU88Sx9rBWBu52T8v" data-collector="https://c.getopen.so"></script>
+<script
+  async
+  src="https://c.getopen.so/oa.js"
+  data-key="oa_pk_jcYOgIjg30Jl3_X7_TlPEW5Jp1a5KThU"
+  data-collector="https://c.getopen.so"
+></script>
 '''),
       // Add speculation rules and prefetch fallback links for
       // URLs provided by subclass overrides of speculationUrls.
