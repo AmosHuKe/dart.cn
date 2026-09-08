@@ -51,6 +51,7 @@ abstract class DashLayout extends PageLayoutBase {
     final pageTitle = (pageData['title'] ?? siteData['title']) as String;
     final pageDescription = pageData['description'] as String?;
     final pageImage = pageData['image'] as String?;
+    final socialImage = pageData['socialImage'] as String? ?? pageImage;
 
     final titleBase = pageData['titleBase'] ?? siteData['titleBase'];
     final windowTitle = titleBase != null
@@ -61,7 +62,7 @@ abstract class DashLayout extends PageLayoutBase {
     final socialPageUrl = _absoluteUrl(siteBaseUrl, canonicalUrl ?? page.url);
     final socialImageUrl = _absoluteUrl(
       siteBaseUrl,
-      pageImage ?? '/assets/img/logo/dart-logo-for-shares.png',
+      socialImage ?? '/assets/img/logo/dart-logo-for-shares.png',
     );
 
     return [
@@ -106,13 +107,13 @@ abstract class DashLayout extends PageLayoutBase {
 
       meta(
         name: 'twitter:card',
-        content: pageImage != null ? 'summary_large_image' : 'summary',
+        content: socialImage != null ? 'summary_large_image' : 'summary',
       ),
       const meta(name: 'twitter:site', content: '@dart_lang'),
       meta(name: 'twitter:title', content: pageTitle),
       if (pageDescription case final String desc)
         meta(name: 'twitter:description', content: desc),
-      if (pageImage != null)
+      if (socialImage != null)
         meta(name: 'twitter:image', content: socialImageUrl),
 
       meta(attributes: {'property': 'og:title', 'content': pageTitle}),
@@ -202,8 +203,7 @@ abstract class DashLayout extends PageLayoutBase {
               attributes: {if (defer == 'true' || defer == true) 'defer': ''},
             ),
       const script(
-        src:
-            'https://files.flutter-io.cn/static/deps/lite-youtube/1.8.1/lite-youtube.js',
+        src: 'https://files.flutter-io.cn/static/deps/lite-youtube/1.8.1/lite-youtube.js',
         attributes: {
           'type': 'module',
           'integrity': 'sha256-dSKwIYLvKdlkLGLp9ZRLJilBuGFSM5beizYOSvK1LeQ=',
@@ -225,16 +225,9 @@ abstract class DashLayout extends PageLayoutBase {
   gtag('config', 'G-28P0PYCRZ9');
 </script>
 '''),
+      // dart.cn
       const RawText('''
-<script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?fa71f2474b82505e00203cf9956cf0bc";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
+<script async src="https://c.getopen.so/oa.js" data-key="oa_pk_e45k56jQ95AYE2AaU88Sx9rBWBu52T8v" data-collector="https://c.getopen.so"></script>
 '''),
       // Add speculation rules and prefetch fallback links for
       // URLs provided by subclass overrides of speculationUrls.

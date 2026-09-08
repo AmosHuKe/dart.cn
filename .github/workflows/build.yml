@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: dart-lang/setup-dart@7654d458321ee25acccccfdb86cd48bd95768ff1
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d
         with:
           sdk: beta
       - name: Fetch Dart packages
@@ -38,7 +38,7 @@ jobs:
         run: curl -sL https://firebase.tools | bash
       - name: Build site
         run: dart run dash_site build
-      - uses: actions/setup-node@670825a89dc0abd596e7a3abd0f5e3f6e5faf37c
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 24
       - name: Translated (dart.cn)
@@ -69,14 +69,14 @@ jobs:
           persist-credentials: false
           # dart.cn | https://github.com/cfug/flutter.cn/pull/1518
           fetch-depth: 0
-      - uses: dart-lang/setup-dart@7654d458321ee25acccccfdb86cd48bd95768ff1
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d
         with:
           sdk: beta
       - name: Fetch Dart packages
         run: dart pub get
       - name: Build site
         run: dart run dash_site build --release
-      - uses: actions/setup-node@670825a89dc0abd596e7a3abd0f5e3f6e5faf37c
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 24
       - name: Translated (dart.cn)
